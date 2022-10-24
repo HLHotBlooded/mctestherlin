@@ -21,7 +21,6 @@
                 }									
 			],
           "outArguments": [],
-          //your server domain/url
           "url": "https://mctestherlin.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
@@ -32,7 +31,6 @@
         }
     },
     "configurationArguments": {
-    	//your custom components unique key in marketing cloud
       "applicationExtensionKey": "d43fb874-0e75-498f-986a-79dfc75ed237",
       "save": {
         "url": "https://mctestherlin.herokuapp.com/journeybuilder/save",
