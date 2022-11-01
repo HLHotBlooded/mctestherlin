@@ -2,16 +2,18 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Chanel & DTT Custom Activity</title>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/require.js"></script>
+    <!-- 引用Bootstrap和jQuery包 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        (function() {
+        (function () {
             var config = {
                 baseUrl: 'js'
             };
@@ -22,60 +24,36 @@
 
             require(config, dependencies);
         })();
-
-        $(document).ready(function() {
-            $("#clearBtn").click(function() {
-                $("#inputTextBox").val('');
-            });
-        });
     </script>
 </head>
 
 <body>
-    <div class="slds-box slds-theme_default">
-        <div class="slds-form-element">
-            <label class="slds-form-element__label" for="text-input-id-1" style="font-size:18px;">Enter Web Hook URl</label>
-            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
-                <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#broadcast"></use>
-                </svg>
-                <input type="text" id="inputTextBox" placeholder="URl..." class="slds-input" />
-                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Clear" id="clearBtn">
-                    <svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
-                    </svg>
-                    <span class="slds-assistive-text">Clear</span>
-                </button>
-            </div>
-
-            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert" id="errorMsgConfig" style="display: none">
-            </div>
-        </div>
-        <!-- Newly Added Code starts here -->
-        <div style="padding-top:3rem;position:relative">
-            <div class="slds-form-element">
-                <label class="slds-form-element__label" for="text-input-id-1" style="font-size:18px;">Data Extension Name</label>
-                <div class="slds-form-element__icon">
-                    <button class="slds-button slds-button_icon" aria-describedby="help">
-                        <svg class="slds-button__icon" aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info_alt"></use>
-                        </svg>
-                        <span class="slds-assistive-text">Help</span>
-                    </button>
-                    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left" role="tooltip" id="help" style="position:absolute;top:-45px;left:-15px;width:200px">
-                        <div class="slds-popover__body">Add Data Extension Name Configured in Journey Entry Source</div>
-                    </div>
-                </div>
-
-                <div class="slds-form-element__control">
-                    <input type="text" id="inputTextBoxDE" placeholder="Enter DE name" required="" aria-describedby="error-message-unique-id" class="slds-input" />
-                </div>
-                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert" id="errorMsgConfigDE" style="display: none">
-                </div>
-
-            </div>
-        </div>
-
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
+                data-toggle="dropdown">
+            主题
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation" >
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">
+                    数据通信/网络
+                </a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>

@@ -1,78 +1,74 @@
 {
-	"workflowApiVersion": "1.1",
-	"metaData": {
-		"icon": "images/monopolygreen2.png",
-		"iconSmall": "images/monopolygreen2.png",
-		"category": "message"
-	},
-	"type": "REST",
-	"lang": {
-		"en-US": {
-			"name": "Claim Code",
-			"description": "A custom Journey Builder activity that will assign Codes to customers. This activity will POST (Journey Data) to a URL when contact reaches this node in journey.",
-			"step1Label": "Configure Web Hook Custom Activity"
-		}
-	},
-	"arguments": {
-		"execute": {
-			"inArguments": [{
-				"winid": "{{Contact.Attribute.BluedotLocationKE.SubscriberKey}}",
-            			"zone": "{{Contact.Attribute.BluedotLocationKE.ZoneName}}"
-			}],
-			"outArguments": [],
-			"url": "https://ar-game-poc.herokuapp.com/journeybuilder/execute",
-			"verb": "POST",
-			"body": "",
-			"header": "",
-			"format": "json",
-			"useJwt": true,
-			"timeout": 10000
-		}
-	},
-	"configurationArguments": {
-		"applicationExtensionKey": "ff0510c9-a075-4fb1-acef-5b2e659db722",
-		"save": {
-			"url": "https://ar-game-poc.herokuapp.com/journeybuilder/save",
-			"verb": "POST",
-			"body": "",
-			"useJwt": true
-		},
-		"publish": {
-			"url": "https://ar-game-poc.herokuapp.com/journeybuilder/publish",
-			"verb": "POST",
-			"body": "",
-			"useJwt": true
-		},
-		"stop": {
-			"url": "https://ar-game-poc.herokuapp.com/journeybuilder/stop",
-			"verb": "POST",
-			"body": "",
-			"useJwt": true
-		},
-		"validate": {
-			"url": "https://ar-game-poc.herokuapp.com/journeybuilder/validate",
-			"verb": "POST",
-			"body": "",
-			"useJwt": true
-		}
-	},
-	"wizardSteps": [{
-		"label": "Configure web Hook Activity",
-		"key": "step1"
-	}],
-	"userInterfaces": {
-		"configModal": {
-			"height": 280,
-			"width": 500,
-			"fullscreen": false
-		}
-	},
-	"schema": {
-		"arguments": {
-			"execute": {
-				"inArguments": [],
-				"outArguments": []
-			}
-		}
-	}
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/DTTDigital.png",
+        "iconSmall": "images/DTTDigitalSmall.png",
+        "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "DTT Custom Activity",
+          "description": "DTT custom Journey Builder activity POC",
+          "step1Label": "Configure Activity"
+        }
+    },
+    "arguments": {
+        "execute": {
+           "inArguments":[
+				{
+                    "ContactKey": "{{Contact.Key}}" 
+                }									
+			],
+          "outArguments": [],
+          "url": "https://mctestherlin.herokuapp.com/journeybuilder/execute",
+           "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+      "applicationExtensionKey": "d43fb874-0e75-498f-986a-79dfc75ed237",
+      "save": {
+        "url": "https://mctestherlin.herokuapp.com/journeybuilder/save",
+          "verb": "POST",
+        "useJwt": true
+       },
+       "publish": {
+        "url": "https://mctestherlin.herokuapp.com/journeybuilder/publish",
+           "verb": "POST",
+        "useJwt": true
+       },
+      "stop": {
+        "url": "https://mctestherlin.herokuapp.com/journeybuilder/stop",
+           "verb": "POST",
+        "useJwt": true
+      },
+      "validate": {
+        "url": "https://mctestherlin.herokuapp.com/journeybuilder/validate",
+        "verb": "POST",
+        "useJwt": true
+      }
+    },
+    "wizardSteps": [
+        { "label": "Configure Activity", "key": "step1" }
+    ],
+    "userInterfaces": {
+        "configModal": {
+            "height": 400,
+            "width": 1000,
+          "fullscreen": false
+        }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [],
+                "outArguments": []
+            }
+        }
+    }
 }
