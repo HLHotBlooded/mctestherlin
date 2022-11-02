@@ -32,17 +32,42 @@
 </head>
 
 <body> 
-    <pre>
-    UserName : <input type="text" name=uname>
-    Password : <input type="password" name=upwd>
-    Confirm Password : <input type="password" name=cpwd>
-    Network : <select>
-                <option value="N1">Network1</option>
-                <option value="N2">Network2</option>
-                <option value="N3">Network3</option>
-         </select>
-    IP address : <input type="text" name=ipaddress>
-    </pre>
-    </body>
+    <!--Parameters tool start-->
+    <div id="divParams">
+        <div class="modal-body" style="border:2px #ccc solid;border-radius:10px">
+            <!--<label>參數小工具(系統會自動複製欄位值，可將其貼上內容中)</label>-->
+            <label>Personalized Message</label>
+
+            <div class="w3-row-padding">
+                <table class="w3-table w3-centered">
+                    <tbody>
+                        <tr>
+                            <th>Choose Column</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">
+                                <select id="j_id0:j_id9:paramsOption" name="j_id0:j_id9:paramsOption"
+                                    class="w3-select w3-border" size="1" onchange="changeParamsValue();"
+                                    style="width:100%">
+                                    <option value=""></option>
+                                    <option value="%%FirstName%%">First Name</option>
+                                    <option value="%%LastName%%">Last Name</option>
+                                    <option value="%%Title%%">Title</option>
+                                </select>
+                            </td>
+                            <td style="width:50%">
+                                <p id="params" style="padding: 9px 0;">
+
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
 
 </html>
