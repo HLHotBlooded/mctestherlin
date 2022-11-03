@@ -107,7 +107,7 @@ define([
 		//payload['arguments'].execute.inArguments.push({"Source": "saved" });
 
 		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
- 
+        console.log('payloaddatabinding '+payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" }));
 		for(var i = 0; i < entrySchema.length; i++) {
 			var fld = entrySchema[i];
 			console.log('cx debug fld', JSON.stringify(fld));
