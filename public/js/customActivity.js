@@ -98,6 +98,7 @@ define([
             console.log('Debug fieldType ', fieldType);
             fieldArr.push(fieldname);
         }
+        console.log("Fieldsallarr=="+fieldArr);
         $("input[name='optArr']").val(fieldArr);
         console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
 	});    
