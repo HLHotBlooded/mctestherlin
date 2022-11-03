@@ -88,11 +88,23 @@ define([
 	   // save schema
 	   console.log('*** Schema ***', JSON.stringify(data['schema']));
 	   entrySchema = data['schema'];
+
 	});
-	
-	String.prototype.replaceAll = function (FindText, RepText) {
-		var regExp = new RegExp(FindText, "g");
-		return this.replace(regExp, RepText);
+	for(var i = 0; i < entrySchema.length; i++) {
+            var fld = entrySchema[i];
+            var fieldval = JSON.stringify(fld.key).replaceAll('"','');
+            var fieldname = fieldval.split('.')[2];
+            var fieldType = JSON.stringify(fld.type).replaceAll('"','');
+            console.log('Debug fieldname ', fieldname);
+            console.log('Debug fieldType ', fieldType);
+            fieldArr.push(fieldname);
+        }
+        $("input[name='optArr']").val(fieldArr);
+        console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
+	    
+    String.prototype.replaceAll = function (FindText, RepText) {
+    var regExp = new RegExp(FindText, "g");
+    return this.replace(regExp, RepText);
 	}
  
     function save() {
@@ -104,24 +116,24 @@ define([
             "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
         }];
         */
-		//payload['arguments'].execute.inArguments.push({"Source": "saved" });
+		payload['arguments'].execute.inArguments.push({"Source": "saved" });
 
-		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
-        console.log('payloaddatabinding '+payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" }));
-		for(var i = 0; i < entrySchema.length; i++) {
-			var fld = entrySchema[i];
-			console.log('cx debug fld', JSON.stringify(fld));
-			var fieldval = JSON.stringify(fld.key).replaceAll('"','');
-			var fieldname = fieldval.split('.')[2];
-			console.log('cx debug fieldname ', fieldname);
-			console.log('cx debug fieldval ', fieldval);
-			payload['arguments'].execute.inArguments.push({fieldname: fieldval });
- 		}
+		// payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
+        // console.log('payloaddatabinding '+payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" }));
+		// for(var i = 0; i < entrySchema.length; i++) {
+		// 	var fld = entrySchema[i];
+		// 	console.log('cx debug fld', JSON.stringify(fld));
+		// 	var fieldval = JSON.stringify(fld.key).replaceAll('"','');
+		// 	var fieldname = fieldval.split('.')[2];
+		// 	console.log('cx debug fieldname ', fieldname);
+		// 	console.log('cx debug fieldval ', fieldval);
+		// 	payload['arguments'].execute.inArguments.push({fieldname: fieldval });
+ 		// }
 		 
 		
         payload['metaData'].isConfigured = true;
 
-        console.log(payload);
+        console.log('payload'+payload);
         connection.trigger('updateActivity', payload);
     }
 
