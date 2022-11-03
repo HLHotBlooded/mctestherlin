@@ -101,9 +101,9 @@ define([
             fieldArr.push(fieldname);
             console.log("Fieldsallarr1==",fieldArr);
         }
-        console.log("Fieldsallarr=="+fieldArr);
-        $("input[name='optArr']").val(fieldArr);
-        console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
+        // console.log("Fieldsallarr=="+fieldArr);
+        // $("input[name='optArr']").val(fieldArr);
+        // console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
 	});    
     String.prototype.replaceAll = function (FindText, RepText) {
     var regExp = new RegExp(FindText, "g");
