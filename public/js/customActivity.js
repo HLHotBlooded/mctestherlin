@@ -6,7 +6,7 @@ define([
     'use strict';
 
     var connection = new Postmonger.Session();
-    var authTokens = {};
+    var authTokens = {};//声明没有属性的对象
     var payload = {};
 	var fieldArr = [];
 	
@@ -95,7 +95,7 @@ define([
             // var fieldval = JSON.stringify(fld.key).replaceAll('"','');
             // console.log('Debug fieldval ', fieldval);
             // var fieldname = fieldval.split('.')[2];
-            var fieldName = JSON.stringify(fld.name).replaceAll('"','');
+            var fieldname = JSON.stringify(fld.name).replaceAll('"','');
             console.log('Debug fieldname ', fieldname);
             var fieldType = JSON.stringify(fld.type).replaceAll('"','');
             console.log('Debug fieldType ', fieldType);
