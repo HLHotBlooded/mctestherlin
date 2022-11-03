@@ -8,7 +8,7 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Chanel LINE Project",
+            "name": "HLCA",
           "description": "DTT custom Journey Builder activity POC",
           "step1Label": "Configure Activity"
         }
