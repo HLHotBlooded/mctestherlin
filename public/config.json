@@ -8,7 +8,7 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "DTT Custom Activity",
+            "name": "Chanel LINE Project",
           "description": "DTT custom Journey Builder activity POC",
           "step1Label": "Configure Activity"
         }
@@ -58,7 +58,7 @@
     ],
     "userInterfaces": {
         "configModal": {
-            "height": 400,
+            "height": 600,
             "width": 1000,
           "fullscreen": false
         }
