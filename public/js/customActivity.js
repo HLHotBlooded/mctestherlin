@@ -89,7 +89,6 @@ define([
 	   console.log('*** Schema ***', JSON.stringify(data['schema']));
 	   entrySchema = data['schema'];
 
-	});
 	for(var i = 0; i < entrySchema.length; i++) {
             var fld = entrySchema[i];
             var fieldval = JSON.stringify(fld.key).replaceAll('"','');
@@ -101,7 +100,7 @@ define([
         }
         $("input[name='optArr']").val(fieldArr);
         console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
-	    
+	});    
     String.prototype.replaceAll = function (FindText, RepText) {
     var regExp = new RegExp(FindText, "g");
     return this.replace(regExp, RepText);
