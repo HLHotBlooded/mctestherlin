@@ -60,12 +60,12 @@ define([
     }
 
     function onGetTokens(tokens) {
-        console.log(tokens);
+        console.log('====>1'+tokens);
         authTokens = tokens;
     }
 
     function onGetEndpoints(endpoints) {
-        console.log(endpoints);
+        console.log('====>2'+endpoints);
     }
 	
 	var eventDefinitionKey;
@@ -77,8 +77,7 @@ define([
 			eventDefinitionKey = eventDefinitionModel.eventDefinitionKey;
 			console.log(">>>Event Definition Key " + eventDefinitionKey);
 			/*If you want to see all*/
-			console.log('>>>Request Trigger', 
-			JSON.stringify(eventDefinitionModel));
+			console.log('>>>Request Trigger',+JSON.stringify(eventDefinitionModel));
 		}
 
 	});
