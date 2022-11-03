@@ -105,7 +105,20 @@ define([
         // console.log("Fieldsallarr=="+fieldArr);
         // $("input[name='optArr']").val(fieldArr);
         // console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
-	});    
+	});
+    
+    //select cloum
+    var select = document.getElementById("selectNumber");
+    var options = fieldArr;
+
+    for(var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+    //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
     var regExp = new RegExp(FindText, "g");
     return this.replace(regExp, RepText);
