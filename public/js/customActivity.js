@@ -91,12 +91,15 @@ define([
 
 	for(var i = 0; i < entrySchema.length; i++) {
             var fld = entrySchema[i];
+            console.log('Debug fld ', fld);
             var fieldval = JSON.stringify(fld.key).replaceAll('"','');
+            console.log('Debug fieldval ', fieldval);
             var fieldname = fieldval.split('.')[2];
             var fieldType = JSON.stringify(fld.type).replaceAll('"','');
             console.log('Debug fieldname ', fieldname);
             console.log('Debug fieldType ', fieldType);
             fieldArr.push(fieldname);
+            console.log("Fieldsallarr1==",fieldArr);
         }
         console.log("Fieldsallarr=="+fieldArr);
         $("input[name='optArr']").val(fieldArr);
