@@ -133,7 +133,6 @@ define([
         document.getElementById('output').innerHTML = result;
         console.log("result==",result);
     }
-    generate();
    
     //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
