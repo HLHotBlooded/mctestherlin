@@ -53,8 +53,8 @@ This guide covers Heroku, skip this step if you are familiar on how to deploy a 
 
 #### Want to learn more?
 
-If you'd like to learn more about building custom Journey Builder Activities and our collection of Custom Activities available to you today, email us at [info@devsutd.com](mailto:info@devsutd.com)
+If you'd like to learn more about building custom Journey Builder Activities and our collection of Custom Activities available to you today, email us at [Deloitte](hezhong@deloitte.com.cn)
 
-Also, follow us on [LinkedIn](https://www.linkedin.com/company/10701607/) to get the latest updates and great articles about Salesforce Marketing Cloud!
+Also, follow us on [LinkedIn](https://www.linkedin.com/) to get the latest updates and great articles about Salesforce Marketing Cloud!
 
 make different

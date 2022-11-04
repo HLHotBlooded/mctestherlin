@@ -86,6 +86,7 @@ define([
 	connection.trigger('requestSchema');
 	connection.on('requestedSchema', function (data) {
 	   // save schema
+       console.log('*** Schema data***', JSON.stringify(data));
 	   console.log('*** Schema ***', JSON.stringify(data['schema']));
 	   entrySchema = data['schema'];
 
