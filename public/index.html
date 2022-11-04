@@ -71,20 +71,47 @@
                 </table>
             </div>
 
-            <div class="w3-row-padding">
-                <table class="w3-table w3-centered">
-                    <tbody>
-                        <tr>
-                            <td style="width:50%">
-                                <input id="text2" type="text" value="" />
-                            </td>
-                            <td style="width:50%">
-                                <p id="params" style="padding: 9px 0;">
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="modal-body" style="border-bottom: 1px solid #dee2e6;">
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <!--<label>提醒訊息</label>
+                        <input class="w3-input w3-border" id="j_id0:j_id9:imageMapTitle"
+                            maxlength="255" name="j_id0:j_id9:imageMapTitle" placeholder="請輸入提醒訊息" size="20"
+                            type="text">
+                        -->
+                        <label>Alternative Text</label>
+                        <input class="w3-input w3-border" id="j_id0:j_id9:imageMapTitle" maxlength="400"
+                            name="j_id0:j_id9:imageMapTitle"
+                            placeholder="The maximum length is 400 characters." size="20" type="text">
+                    </div>
+                </div>
+                <br>
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <input accept="image/jpeg,image/png,image/jpg" accesskey="" alt="" class="fileType"
+                            dir="" id="j_id0:j_id9:imageMapUrl" lang=""
+                            name="j_id0:j_id9:imageMapUrl:inputFile:file" onblur=""
+                            onchange="UploadFile('imageMapUrl');" onclick="" ondblclick="" onfocus=""
+                            onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove=""
+                            onmouseout="" onmouseover="" size="" tabindex="" title="" type="file">
+                        <br>
+                        <!--
+                        <input class="w3-input w3-border" id="imageMapUrl" onfocusout="uploadUrlImageMap();"
+                            placeholder="或輸入圖片網址，請https://為開頭" type="text" value="">
+                        檔案格式：JPG、PNG <br>
+                        檔案容量：1MB 至 300K 或更小(愈小速度愈快)<br>
+                        圖片尺寸：1040px × 1040px 或等比例縮放
+                            -->
+                        <input class="w3-input w3-border" id="imageMapUrl" onfocusout="uploadUrlImageMap();"
+                            placeholder="Image URL should be start with 'https://'." type="text" value="">
+                        The maximum length of image URL is 2000. Accepted image format is JPEG or PNG.
+                        The max width of image is 1024 pixels. The aspect ratio is 1:1.51, and the file size
+                        cannot exceed 1MB.
+                    </div>
+                    <div class="w3-half">
+                        <img id="imageMapFile" src="" style="max-width:90%; width:90%"><br>
+                    </div>
+                </div>
             </div>
         </div>
         <br>
