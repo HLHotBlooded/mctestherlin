@@ -124,7 +124,7 @@ define([
     function generate(){
         var result = '';
     
-        result += document.getElementById('text2').value;
+        result += document.getElementById('selectNumber').value;
     
         document.getElementById('output').innerHTML = result;
     }
