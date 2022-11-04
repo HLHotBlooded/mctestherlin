@@ -118,6 +118,18 @@ define([
         el.value = opt;
         select.appendChild(el);
     }
+
+    //and generation
+
+    function generate(){
+        var result = '';
+    
+        result += document.getElementById('text2').value;
+    
+        document.getElementById('output').innerHTML = result;
+    }
+    generate();
+
 	});
     
    

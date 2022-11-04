@@ -64,7 +64,7 @@
                                 </select>
                             </td>
                             <td style="width:50%">
-                                <p id="params" style="padding: 9px 0;">
+                                <p id="output" style="padding: 9px 0;">
                                 </p>
                             </td>
                         </tr>
@@ -81,10 +81,12 @@
                             type="text">
                         -->
                         <label>Alternative Text</label>
-                        <input class="w3-input w3-border" id="txearea" maxlength="400"
-                            name="txtarea"
-                            placeholder="The maximum length is 400 characters." size="20" type="text">
+                        <input class="w3-input w3-border" id="text2" maxlength="400"
+                            name="text2"
+                            placeholder="The maximum length is 400 characters." size="20" type="text" value="text2" onchange="generate()" onkeyup="generate()">
                     </div>
+
+                    value="text2" onchange="generate()" onkeyup="generate()"
                 </div>
                 <br>
                 <div class="w3-row-padding">
