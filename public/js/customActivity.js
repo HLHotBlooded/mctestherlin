@@ -109,7 +109,7 @@ define([
          //select cloum
     var select = document.getElementById("selectNumber");
     var options = fieldArr;
-
+    console.log("select==>",select);
     for(var i = 0; i < options.length; i++) {
         var opt = options[i];
         var el = document.createElement("option");
