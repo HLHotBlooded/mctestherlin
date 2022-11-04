@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css" />
 	<link rel="stylesheet" type="text/css" href="css/dropkick.css" />
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/require.js"></script>
     <script type="text/javascript">
@@ -30,11 +30,21 @@
             require(config, dependencies);
         })();
 
-        $(document).ready(function() {
-            $("#clearBtn").click(function() {
-                $("#inputTextBox").val('');
-            });
+        // $(document).ready(function() {
+        //     $("#clearBtn").click(function() {
+        //         $("#inputTextBox").val('');
+        //     });
+        // });
+
+
+        $(document).ready(function(){
+        $("#selectNumber").on("change",function(){
+        var GetValue=$("#selectNumber").val();
+        $("#text1").val(GetValue);
         });
+
+        });
+
     </script>
 </head>
 
@@ -82,7 +92,7 @@
                         -->
                         <label>Alternative Text</label>
                         <input class="w3-input w3-border" id="text1" maxlength="400"
-                            name="text2"
+                            name="text1"
                             placeholder="The maximum length is 400 characters." size="20" type="text">
                     </div>
 

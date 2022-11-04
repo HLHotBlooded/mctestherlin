@@ -124,15 +124,15 @@ define([
 	});
     
     //and generation
-    function generate(){
-        console.log("result4444==");
-        var result = '';
+    // function generate(){
+    //     console.log("result4444==");
+    //     var result = '';
     
-        result += document.getElementById('selectNumber').value;
+    //     result += document.getElementById('selectNumber').value;
     
-        document.getElementById('output').innerHTML = result;
-        console.log("result==",result);
-    }
+    //     document.getElementById('output').innerHTML = result;
+    //     console.log("result==",result);
+    // }
    
     //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
