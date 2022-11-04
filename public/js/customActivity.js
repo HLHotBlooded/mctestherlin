@@ -105,9 +105,8 @@ define([
         // console.log("Fieldsallarr=="+fieldArr);
         // $("input[name='optArr']").val(fieldArr);
         // console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
-	});
-    
-    //select cloum
+
+         //select cloum
     var select = document.getElementById("selectNumber");
     var options = fieldArr;
 
@@ -118,6 +117,9 @@ define([
         el.value = opt;
         select.appendChild(el);
     }
+	});
+    
+   
     //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
     var regExp = new RegExp(FindText, "g");
