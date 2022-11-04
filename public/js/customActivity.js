@@ -130,6 +130,7 @@ define([
         result += document.getElementById('selectNumber').value;
     
         document.getElementById('output').innerHTML = result;
+        console.log("result==",result);
     }
     generate();
    
