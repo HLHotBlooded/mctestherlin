@@ -119,8 +119,11 @@ define([
         select.appendChild(el);
     }
 
-    //and generation
+   
 
+	});
+    
+    //and generation
     function generate(){
         var result = '';
     
@@ -129,9 +132,6 @@ define([
         document.getElementById('output').innerHTML = result;
     }
     generate();
-
-	});
-    
    
     //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
