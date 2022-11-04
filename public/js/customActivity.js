@@ -108,16 +108,16 @@ define([
         // console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
 
          //select cloum
-    var select = document.getElementById("selectNumber");
-    var options = fieldArr;
-    console.log("select==>",select);
-    for(var i = 0; i < options.length; i++) {
-        var opt = options[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        select.appendChild(el);
-    }
+        var select = document.getElementById("selectNumber");
+        var options = fieldArr;
+        console.log("select==>",select);
+        for(var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
 
    
 
@@ -125,6 +125,7 @@ define([
     
     //and generation
     function generate(){
+        console.log("result4444==");
         var result = '';
     
         result += document.getElementById('selectNumber').value;
