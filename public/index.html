@@ -39,7 +39,9 @@
 
         $(document).ready(function(){
         $("#selectNumber").on("change",function(){
+        var str =  '%%';
         var GetValue=$("#selectNumber").val();
+        GetValue = str.append(GetValue).append(str);
         $("#text1").val(GetValue);
         });
 
