@@ -55,7 +55,7 @@
                         <tr>
                             <td style="width:50%">
                                 <select id="selectNumber" name="selectNumber"
-                                    class="w3-select w3-border" size="1" onchange="changeParamsValue();"
+                                    class="w3-select w3-border" size="1" onchange="generate()"
                                     style="width:100%">
                                     <option value="">Choose a number</option>
                                     <!-- <option value="%%FirstName%%">First Name</option>
@@ -81,12 +81,11 @@
                             type="text">
                         -->
                         <label>Alternative Text</label>
-                        <input class="w3-input w3-border" id="text2" maxlength="400"
+                        <input class="w3-input w3-border" id="text1" maxlength="400"
                             name="text2"
-                            placeholder="The maximum length is 400 characters." size="20" type="text" value="text2" onchange="generate()" onkeyup="generate()">
+                            placeholder="The maximum length is 400 characters." size="20" type="text">
                     </div>
 
-                    value="text2" onchange="generate()" onkeyup="generate()"
                 </div>
                 <br>
                 <div class="w3-row-padding">
