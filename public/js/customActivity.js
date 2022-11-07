@@ -32,6 +32,7 @@ define([
         console.log('====>'+data);
         if (data) {
             payload = data;
+            console.debug('=======090==>',payload);
         }
         
         var hasInArguments = Boolean(
@@ -47,8 +48,6 @@ define([
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
-                
-              
             });
         });
 
