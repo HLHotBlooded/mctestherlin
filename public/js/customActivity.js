@@ -32,7 +32,6 @@ define([
         console.log('====>'+data);
         if (data) {
             payload = data;
-            console.debug('=======090==>',payload);
         }
         
         var hasInArguments = Boolean(
@@ -121,17 +120,6 @@ define([
    
 
 	});
-    
-    //and generation
-    // function generate(){
-    //     console.log("result4444==");
-    //     var result = '';
-    
-    //     result += document.getElementById('selectNumber').value;
-    
-    //     document.getElementById('output').innerHTML = result;
-    //     console.log("result==",result);
-    // }
    
     //replace setting
     String.prototype.replaceAll = function (FindText, RepText) {
@@ -140,28 +128,30 @@ define([
 	}
  
     function save() {
-        var postcardURLValue = $('#postcard-url').val();
-        var postcardTextValue = $('#postcard-text').val();
-/*
+        // var postcardURLValue = $('#postcard-url').val();
+        // var postcardTextValue = $('#postcard-text').val();
+        /*
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
         }];
         */
-		payload['arguments'].execute.inArguments.push({"Source": "saved" });
+        console.log("payload1==>");
+		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
+        console.log("payload12==>");
+		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
+        console.log("payload123==>");
 
-		// payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
-        // console.log('payloaddatabinding '+payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" }));
-		// for(var i = 0; i < entrySchema.length; i++) {
-		// 	var fld = entrySchema[i];
-		// 	console.log('cx debug fld', JSON.stringify(fld));
-		// 	var fieldval = JSON.stringify(fld.key).replaceAll('"','');
-		// 	var fieldname = fieldval.split('.')[2];
-		// 	console.log('cx debug fieldname ', fieldname);
-		// 	console.log('cx debug fieldval ', fieldval);
-		// 	payload['arguments'].execute.inArguments.push({fieldname: fieldval });
- 		// }
-		 
+		for(var i = 0; i < entrySchema.length; i++) {
+			var fld = entrySchema[i];
+			console.log('cx debug fld', JSON.stringify(fld));
+			var fieldval = JSON.stringify(fld.key).replaceAll('"','');
+			var fieldname = fieldval.split('.')[2];
+			console.log('cx debug fieldname ', fieldname);
+			console.log('cx debug fieldval ', fieldval);
+			payload['arguments'].execute.inArguments.push({fieldname: fieldval });
+ 		}
+
 		
         payload['metaData'].isConfigured = true;
 
