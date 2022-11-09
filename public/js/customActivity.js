@@ -140,7 +140,7 @@ define([
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
 		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
-        console.log("payload123==>",payload);
+        console.log("payload123==>",JSON.stringify(payload));
 
 		for(var i = 0; i < entrySchema.length; i++) {
 			var fld = entrySchema[i];
