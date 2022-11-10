@@ -147,15 +147,15 @@ define([
 		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
         console.log("payload123==>",JSON.stringify(payload));
 
-		// for(var i = 0; i < entrySchema.length; i++) {
-		// 	var fld = entrySchema[i];
-		// 	console.log('cx debug fld', JSON.stringify(fld));
-		// 	var fieldval = JSON.stringify(fld.key).replaceAll('"','');
-		// 	var fieldname = fieldval.split('.')[2];
-		// 	console.log('cx debug fieldname ', fieldname);
-		// 	console.log('cx debug fieldval ', fieldval);
-		// 	payload['arguments'].execute.inArguments.push({fieldname: fieldval });
- 		// }
+		for(var i = 0; i < entrySchema.length; i++) {
+			var fld = entrySchema[i];
+			console.log('cx debug fld', JSON.stringify(fld));
+			var fieldval = JSON.stringify(fld.key).replaceAll('"','');
+			var fieldname = fieldval.split('.')[2];
+			console.log('cx debug fieldname ', fieldname);
+			console.log('cx debug fieldval ', fieldval);
+			payload['arguments'].execute.inArguments.push({fieldname: fieldval });
+ 		}
 
         //and 1110
          var params = {
