@@ -140,8 +140,8 @@ define([
             "emailAddress": "{{Contact.Attribute."+ eventDefinitionKey +".\"Email\"}}"
         }];
 
-        
-        console.log("payload1==>",payload);
+
+        console.log("payload1==>",payload.schema);
         console.log("payload1==>",payload);
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
