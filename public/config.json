@@ -18,7 +18,10 @@
            "inArguments":[
 				{
                     "ContactKey": "{{Contact.Key}}" 
-                }									
+                },
+        {
+                  "emailAddress": "{{InteractionDefaults.Email}}" 
+              }									
 			],
           "outArguments": [],
           "url": "https://mctestherlin.herokuapp.com/journeybuilder/execute",
