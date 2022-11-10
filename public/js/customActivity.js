@@ -1,171 +1,96 @@
-define([
-    'postmonger'
-], function (
-    Postmonger
-) {
-    'use strict';
-
+define(function (require) {
+    var Postmonger = require('postmonger');
     var connection = new Postmonger.Session();
-    var authTokens = {};//声明没有属性的对象
     var payload = {};
-	var fieldArr = [];
-	
-
-    $(window).ready(onRender);
-
-    connection.on('initActivity', initialize);
-    connection.on('requestedTokens', onGetTokens);
-    connection.on('requestedEndpoints', onGetEndpoints);
-
-    connection.on('clickedNext', save);
-   
-    function onRender() {
-        // JB will respond the first time 'ready' is called with 'initActivity'
+    var steps = [
+        {'key': 'eventdefinitionkey', 'label': 'Event Definition Key'}
+    ];
+    
+    //HERE it works 
+    //connection.trigger('requestSchema');
+    
+    var currentStep = steps[0].key;
+    var deName;
+    $(window).ready(function () {
         connection.trigger('ready');
-
-        connection.trigger('requestTokens');
-        connection.trigger('requestEndpoints');
-
-    }
-
+    });
+    
     function initialize(data) {
-        console.log('====>'+data);
         if (data) {
             payload = data;
         }
-        
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
-
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        console.log(inArguments);
-
-        $.each(inArguments, function (index, inArgument) {
-            $.each(inArgument, function (key, val) {
-            });
-        });
-
-        connection.trigger('updateButton', {
-            button: 'next',
-            text: 'done',
-            visible: true
-        });
     }
-
-    function onGetTokens(tokens) {
-        console.log('====>1'+tokens);
-        authTokens = tokens;
-    }
-
-    function onGetEndpoints(endpoints) {
-        console.log('====>2'+endpoints);
-    }
-	
-	var eventDefinitionKey;
-	connection.trigger('requestTriggerEventDefinition');
-	connection.on('requestedTriggerEventDefinition',
-	function(eventDefinitionModel) {
-		if(eventDefinitionModel){
-
-			eventDefinitionKey = eventDefinitionModel.eventDefinitionKey;
-			console.log(">>>Event Definition Key " + eventDefinitionKey);
-			/*If you want to see all*/
-			console.log('>>>Request Trigger',+JSON.stringify(eventDefinitionModel));
-
-            //and get data 1110
-            save(eventDefinitionKey);
-		}
-
-	});
-
-	
-	var entrySchema;
-	connection.trigger('requestSchema');
-	connection.on('requestedSchema', function (data) {
-	   // save schema
-       console.log('*** Schema data***', JSON.stringify(data));
-	   console.log('*** Schema ***', JSON.stringify(data['schema']));
-	   entrySchema = data['schema'];
-
-	for(var i = 0; i < entrySchema.length; i++) {
-            var fld = entrySchema[i];
-            console.log('Debug fld ', fld);
-            // var fieldval = JSON.stringify(fld.key).replaceAll('"','');
-            // console.log('Debug fieldval ', fieldval);
-            // var fieldname = fieldval.split('.')[2];
-            var fieldname = JSON.stringify(fld.name).replaceAll('"','');
-            console.log('Debug fieldname ', fieldname);
-            var fieldType = JSON.stringify(fld.type).replaceAll('"','');
-            console.log('Debug fieldType ', fieldType);
-            fieldArr.push(fieldname);
-            console.log("Fieldsallarr1==",fieldArr);
+    
+    function onClickedNext() { //SAVE USED HERE
+        if (currentStep.key === 'eventdefinitionkey') {
+            save();                       
+        } else {
+            connection.trigger('nextStep');
         }
-        // console.log("Fieldsallarr=="+fieldArr);
-        // $("input[name='optArr']").val(fieldArr);
-        // console.log("Fields=="+JSON.stringify($("input[name='optArr']").val()));
-
-         //select cloum
-        var select = document.getElementById("selectNumber");
-        var options = fieldArr;
-        console.log("select==>",select);
-        for(var i = 0; i < options.length; i++) {
-            var opt = options[i];
-            var el = document.createElement("option");
-            el.textContent = opt;
-            el.value = opt;
-            select.appendChild(el);
+    }
+    
+    function onClickedBack () {
+        connection.trigger('prevStep');
+    }
+    
+    function onGotoStep (step) {
+        showStep(step);
+        connection.trigger('ready');
+    }
+    
+    function showStep (step, stepIndex) {
+        if (stepIndex && !step) {
+            step = steps[stepIndex - 1];
         }
-
-   
-
-	});
-   
-    //replace setting
-    String.prototype.replaceAll = function (FindText, RepText) {
-    var regExp = new RegExp(FindText, "g");
-    return this.replace(regExp, RepText);
-	}
- 
-    function save() {
-        // var postcardURLValue = $('#postcard-url').val();
-        // var postcardTextValue = $('#postcard-text').val();
-
+    
+        currentStep = step;
+    
+        $('.step').hide();
+    
+        switch  (currentStep.key) {
+        case 'eventdefinitionkey':
+            $('#step1').show();
+            $('#step1 input').focus();
+            break;
+        }
+    }
+    
+    
+    
+    function save() { //SAVE FUNCTION
+        console.log('save');
+        connection.trigger('requestSchema'); //NOT SHOWN IN CONSOLE
+    
+        let campaignNameKey = $('#select-campaign-name').val();
+        let csvName = $('#select-csv-name').val();
+    
+        console.log("DE NAME " + deName);
+        payload['arguments'] = payload['arguments'] || {};
+        payload['arguments'].execute = payload['arguments'].execute || {};
+    
         payload['arguments'].execute.inArguments = [{
-            "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.Registrations.FirstName}}"
+            'campaignNameKey': campaignNameKey,
+            'csvName': csvName,
+            "Prenom": "{{Contact.Attribute."+ deName +".[\"Prénom\"]}}",
+            "Nom": "{{Contact.Attribute." + deName +".Nom}}",
+            "Mobile": "{{Contact.Attribute." + deName +".Mobile}}",
+            "Campagne": "{{Contact.Attribute." + deName +".Campagne}}",
+            "stopSMS": "{{Contact.Attribute." + deName +".stopSMS}}"
         }];
-
-        console.log("payload1==>",payload);
-		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
-        console.log("payload12==>");
-		payload['arguments'].execute.inArguments.push({"email": "{{Event." + eventDefinitionKey+".Email}}" });
-        console.log("payload123==>",JSON.stringify(payload));
-
-		for(var i = 0; i < entrySchema.length; i++) {
-			var fld = entrySchema[i];
-			console.log('cx debug fld', JSON.stringify(fld));
-			var fieldval = JSON.stringify(fld.key).replaceAll('"','');
-			var fieldname = fieldval.split('.')[2];
-			console.log('cx debug fieldname ', fieldname);
-			console.log('cx debug fieldval ', fieldval);
-			payload['arguments'].execute.inArguments.push({fieldname: fieldval });
- 		}
-
-        //add 1110
-         var params = {
-            subscriberKey: '{{Contact.key}}',
-            columnName: '{{Event.' + eventDefinitionKey + '.columnName}}',
-          };
-          payload['arguments'].execute.inArguments = [params];
-          console.log('>>>>>>payload>>>>'+payload);
-		
+    
+        payload['metaData'] = payload['metaData'] || {};
         payload['metaData'].isConfigured = true;
-        console.log('payload'+payload);
+        //console.log(JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
-});
+    
+    connection.on('requestedSchema', function (data) {    //CONNECTION ON
+        // save schema
+        console.log('*** Schema ***', JSON.stringify(data['schema']));
+        let schema = JSON.stringify(data['schema']);
+    });
+    connection.on('initActivity', initialize);
+    connection.on('clickedNext', onClickedNext);
+    connection.on('clickedBack', onClickedBack);
+    connection.on('gotoStep', onGotoStep);
+    });
