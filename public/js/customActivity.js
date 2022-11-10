@@ -164,10 +164,10 @@ define([
             columnName: '{{Event.' + eventDefinitionKey + '.Email}}',
           };
           payload['arguments'].execute.inArguments = [params];
-          console.log('>>>>>>payload>>>>'+payload);
+          console.log('>>>>>>payload>>>>'+JSON.stringify(payload));
 		
         payload['metaData'].isConfigured = true;
-        console.log('payload'+payload);
+        console.log('payload'+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 });
