@@ -163,6 +163,7 @@ define([
             subscriberKey: '{{Contact.key}}',
             columnName: '{{Event.' + eventDefinitionKey + '.Email}}',
           };
+          console.log('>>>>>>params>>>>'+JSON.stringify(params));
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+JSON.stringify(payload));
 		
