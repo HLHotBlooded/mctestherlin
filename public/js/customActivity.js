@@ -143,7 +143,7 @@ define([
         console.log("payload1==>",payload);
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
-		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
+		payload['arguments'].execute.inArguments.push({"email": "{{Event." + eventDefinitionKey+".Email}}" });
         console.log("payload123==>",JSON.stringify(payload));
 
 		for(var i = 0; i < entrySchema.length; i++) {
