@@ -141,8 +141,8 @@ define([
         }];
 
 
-        console.log("payload1==>",payload.schema);
-        console.log("payload1==>",payload);
+        console.log("payload1==>",JSON.stringify(payload.schema));
+        console.log("payload1111==>",JSON.stringify(payload));
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
 		payload['arguments'].execute.inArguments.push({"email": "{{Event." + eventDefinitionKey+".Email}}" });
