@@ -134,13 +134,13 @@ define([
     function save() {
         // var postcardURLValue = $('#postcard-url').val();
         // var postcardTextValue = $('#postcard-text').val();
-        /*
+
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
+            "emailAddress": "{{Contact.Attribute.Registrations.FirstName}}"
         }];
-        */
-        console.log("payload1==>");
+
+        console.log("payload1==>",payload);
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
 		payload['arguments'].execute.inArguments.push({"CustomerName": "{{Event." + eventDefinitionKey+".CustomerName}}" });
@@ -156,7 +156,7 @@ define([
 			payload['arguments'].execute.inArguments.push({fieldname: fieldval });
  		}
 
-        //and 1110
+        //add 1110
          var params = {
             subscriberKey: '{{Contact.key}}',
             columnName: '{{Event.' + eventDefinitionKey + '.columnName}}',
@@ -168,6 +168,4 @@ define([
         console.log('payload'+payload);
         connection.trigger('updateActivity', payload);
     }
-
-
 });
