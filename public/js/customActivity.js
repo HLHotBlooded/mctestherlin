@@ -161,7 +161,7 @@ define([
         //add 1110
          var params = {
             subscriberKey: '{{Contact.key}}',
-            columnName: '{{Event.' + eventDefinitionKey + '.columnName}}',
+            columnName: '{{Event.' + eventDefinitionKey + '.Email}}',
           };
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+payload);
