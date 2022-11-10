@@ -76,9 +76,25 @@ define([
 			console.log(">>>Event Definition Key " + eventDefinitionKey);
 			/*If you want to see all*/
 			console.log('>>>Request Trigger',+JSON.stringify(eventDefinitionModel));
+
+            //and get data 1110
+            var eventKey = eventDefinitionModel['eventDefinitionKey'];
+            save(eventKey);
 		}
 
 	});
+
+    //get data 1110
+    function save(eventKey) {
+        // subscriberKey fetched directly from Contact model
+        // columnName is populated from the Journey Data model
+        var params = {
+          subscriberKey: '{{Contact.key}}',
+          columnName: '{{Event.' + eventKey + '.columnName}}',
+        };
+        payload['arguments'].execute.inArguments = [params];
+        console.log('>>>>>>payload>>>>'+payload);
+      }
 	
 	var entrySchema;
 	connection.trigger('requestSchema');
