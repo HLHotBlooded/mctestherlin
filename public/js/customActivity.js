@@ -137,9 +137,10 @@ define([
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.Registrations.FirstName}}"
+            "emailAddress": "{{Contact.Attribute."+ eventDefinitionKey +".\"Email\"}}"
         }];
 
+        
         console.log("payload1==>",payload);
         console.log("payload1==>",payload);
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
