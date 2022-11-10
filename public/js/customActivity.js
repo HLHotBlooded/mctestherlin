@@ -78,8 +78,7 @@ define([
 			console.log('>>>Request Trigger',+JSON.stringify(eventDefinitionModel));
 
             //and get data 1110
-            var eventKey = eventDefinitionModel['eventDefinitionKey'];
-            save(eventKey);
+            save(eventDefinitionKey);
 		}
 
 	});
@@ -160,13 +159,12 @@ define([
         //and 1110
          var params = {
             subscriberKey: '{{Contact.key}}',
-            columnName: '{{Event.' + eventKey + '.columnName}}',
+            columnName: '{{Event.' + eventDefinitionKey + '.columnName}}',
           };
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+payload);
 		
         payload['metaData'].isConfigured = true;
-
         console.log('payload'+payload);
         connection.trigger('updateActivity', payload);
     }
