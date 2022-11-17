@@ -15,14 +15,13 @@
     },
     "arguments": {
         "execute": {
-           "inArguments":[
-				{
-                    "ContactKey": "{{Contact.Key}}" 
-                },
-        {
-                  "emailAddress": "{{InteractionDefaults.Email}}" 
-              }									
-			],
+           "inArguments":[{
+            "SubscriberKey": "{{Contact.Key}}"
+          }, {
+            "FirstName": "{{Contact.Attribute.MyCustomers.FirstName}}"
+          }, {
+            "LastName": "{{Contact.Attribute.MyCustomers.LastName}}"
+          }],
           "outArguments": [],
           "url": "https://mctestherlin.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
