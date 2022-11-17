@@ -160,7 +160,7 @@ define([
 
         //add 1110
          var params = {
-            subscriberKey: '{{Contact.key}}',
+            ContactKey: '{{Contact.key}}',
             columnName: '{{Event.' + eventDefinitionKey + '.Firstname}}',
             columnName2: '{{Contact.Attribute.MyCustomers.FirstName}}'
           };
