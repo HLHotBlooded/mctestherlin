@@ -16,7 +16,7 @@
     "arguments": {
         "execute": {
            "inArguments":[{
-            "SubscriberKey": "{{Contact.Key}}"
+            "ContcatKey": "{{Contact.Key}}"
           }, {
             "FirstName": "{{Contact.Attribute.MyCustomers.FirstName}}"
           }, {
