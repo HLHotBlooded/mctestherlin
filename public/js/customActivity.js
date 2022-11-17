@@ -137,7 +137,7 @@ define([
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute."+ eventDefinitionKey +".\"Email\"}}"
+            "Firstname": "{{Contact.Attribute."+ eventDefinitionKey +".\"Firstname\"}}"
         }];
 
 
@@ -145,7 +145,7 @@ define([
         console.log("payload1111==>",JSON.stringify(payload));
 		// payload['arguments'].execute.inArguments.push({"Source": "saved" });
         console.log("payload12==>");
-		payload['arguments'].execute.inArguments.push({"email": "{{Event." + eventDefinitionKey+".Email}}" });
+		payload['arguments'].execute.inArguments.push({"email": "{{Event." + eventDefinitionKey+".Firstname}}" });
         console.log("payload123==>",JSON.stringify(payload));
 
 		for(var i = 0; i < entrySchema.length; i++) {
@@ -161,12 +161,13 @@ define([
         //add 1110
          var params = {
             subscriberKey: '{{Contact.key}}',
-            columnName: '{{Event.' + eventDefinitionKey + '.Email}}',
+            columnName: '{{Event.' + eventDefinitionKey + '.Firstname}}',
           };
           console.log('>>>>>>params>>>>'+JSON.stringify(params));
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+JSON.stringify(payload));
-		
+          console.log('>>>>>>1>>>>'+JSON.stringify(Contact.Attribute.MyCustomers.FirstName));
+          console.log('>>>>>>2>>>>'+JSON.stringify({{Contact.Attribute.MyCustomers.FirstName}});
         payload['metaData'].isConfigured = true;
         console.log('payload'+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
