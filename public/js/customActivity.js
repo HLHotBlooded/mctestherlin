@@ -167,7 +167,6 @@ define([
           console.log('>>>>>>params>>>>'+JSON.stringify(params));
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+JSON.stringify(payload));
-          console.log('>>>>>>221>>>>'+JSON.stringify(Contact.Attribute.MyCustomers.FirstName));
         payload['metaData'].isConfigured = true;
         console.log('payload'+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
