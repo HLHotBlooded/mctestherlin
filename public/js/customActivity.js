@@ -161,8 +161,8 @@ define([
         //add 1110
          var params = {
             ContactKey: '{{Contact.key}}',
-            columnName: '{{Event.' + eventDefinitionKey + '.Firstname}}',
-            columnName2: '{{Contact.Attribute.MyCustomers.FirstName}}'
+            // columnName: '{{Event.' + eventDefinitionKey + '.Firstname}}',
+            columnName2: '{{Contact.Attribute.MyCustomers.FirstName}}',
           };
           console.log('>>>>>>params>>>>'+JSON.stringify(params));
           payload['arguments'].execute.inArguments = [params];
