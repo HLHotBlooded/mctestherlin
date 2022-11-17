@@ -162,12 +162,12 @@ define([
          var params = {
             subscriberKey: '{{Contact.key}}',
             columnName: '{{Event.' + eventDefinitionKey + '.Firstname}}',
+            columnName2: '{{Contact.Attribute.MyCustomers.FirstName}}'
           };
           console.log('>>>>>>params>>>>'+JSON.stringify(params));
           payload['arguments'].execute.inArguments = [params];
           console.log('>>>>>>payload>>>>'+JSON.stringify(payload));
-          console.log('>>>>>>1>>>>'+JSON.stringify(Contact.Attribute.MyCustomers.FirstName));
-          console.log('>>>>>>2>>>>'+JSON.stringify({{Contact.Attribute.MyCustomers.FirstName}});
+          console.log('>>>>>>221>>>>'+JSON.stringify(Contact.Attribute.MyCustomers.FirstName));
         payload['metaData'].isConfigured = true;
         console.log('payload'+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
